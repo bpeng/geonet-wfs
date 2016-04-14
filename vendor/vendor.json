@@ -1,0 +1,37 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "sUq2lqZMc2PtWFhoxqeUuRlP2zw=",
+			"path": "github.com/GeoNet/cfg/cfgenv",
+			"revision": "1e6eb409c035ae57177c122938168e9e68fb2bde",
+			"revisionTime": "2016-02-14T23:48:01Z"
+		},
+		{
+			"checksumSHA1": "CEvEwEZNau7EIL6ON5M3yxoM6Dk=",
+			"path": "github.com/GeoNet/log/logentries",
+			"revision": "18c2731b9dd6d1f74215d1018b21f7b8d270d4fe",
+			"revisionTime": "2015-03-29T18:26:06Z"
+		},
+		{
+			"checksumSHA1": "Ey/Wacyhire/uEa+PJTOnGIH5Y8=",
+			"path": "github.com/NYTimes/gziphandler",
+			"revision": "a88790d49798560db24af70fb6a10a66e2549a72",
+			"revisionTime": "2016-02-08T01:52:08Z"
+		},
+		{
+			"checksumSHA1": "7peGPwyhdJqvsztyCdT9MJH90pU=",
+			"path": "github.com/lib/pq",
+			"revision": "93e9980741c9e593411b94e07d5bad8cfb4809db",
+			"revisionTime": "2015-05-02T11:36:36Z"
+		},
+		{
+			"checksumSHA1": "xppHi82MLqVx1eyQmbhTesAEjx8=",
+			"path": "github.com/lib/pq/oid",
+			"revision": "93e9980741c9e593411b94e07d5bad8cfb4809db",
+			"revisionTime": "2015-05-02T11:36:36Z"
+		}
+	],
+	"rootPath": "github.com/bpeng/geonet-wfs"
+}

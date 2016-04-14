@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GeoNet &ndash; WFS</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9"/>
+    <meta name="copyright" content="GNS Science"/>
+    <meta name="description" content="The GeoNet Project - Monitoring geological hazards in New Zealand"/>
+    <meta name="keywords" content="Earthquake, catalogue, NZ, GeoNet, seismic, hazard, new zealand"/>
+
+    <meta property="og:title" content="GeoNet Quake Search">
+    <meta property="twitter:title" content="GeoNet Quake Search">
+    <meta property="og:description" content="The GeoNet Project - Monitoring geological hazards in New Zealand">
+    <meta property="twitter:description" content="The GeoNet Project - Monitoring geological hazards in New Zealand">
+    <meta property="og:image" content="http://info.geonet.org.nz/download/attachments/950285/QS.png">
+    <meta property="twitter:image:src" content="http://info.geonet.org.nz/download/attachments/950285/QS.png">
+
+    <link rel="home" href="http://geonet.org.nz/"/>
+    <link rel="shortcut icon" href="http://www.geonet.org.nz/favicon.ico" type="image/x-icon"/>
+
+    <link type="text/css" rel="stylesheet" href="http://static.geonet.org.nz/geonet-2.0.3/css/bootstrap-geonet.css"/>
+
+</head>
+
+<body class="background-image-none">
+
+<div class="background-gradient-none">
+
+    <!-- menu bar -->
+    <div data-dropdown="dropdown" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a shape="rect" data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+
+                    <span class="icon-bar"></span><span class="icon-bar"></span>
+                    <span class="icon-bar"></span></a>
+                <a shape="rect" class="brand" href="http://geonet.org.nz/">GeoNet</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li><a href="http://info.geonet.org.nz/x/WIAO">Connect <i class="icon-info-sign icon-white"></i></a>
+                        </li>
+                        <li><a href="http://info.geonet.org.nz/x/DYAO">Data <i
+                                class="icon-info-sign icon-white"></i></a></li>
+                        <li><a href="http://info.geonet.org.nz/x/FoAO">Networks <i
+                                class="icon-info-sign icon-white"></i></a></li>
+                        <li><a href="http://info.geonet.org.nz">News <i class="icon-info-sign icon-white"></i></a></li>
+                        <li><a shape="rect" href="http://geonet.org.nz/quakes/">Quakes </a></li>
+                        <li><a shape="rect" href="http://geonet.org.nz/tsunami/">Tsunami</a></li>
+                        <li><a shape="rect" href="http://geonet.org.nz/volcano/">Volcano</a></li>
+                    </ul>
+                    <ul class="nav navbar-text pull-right navbar-pull-right-text">
+                        <li><a shape="rect" href="http://www.eqc.govt.nz/" target="_blank">EQC</a> &amp; <a shape="rect"
+                                                                                                            href="http://www.gns.cri.nz/"
+                                                                                                            target="_blank">GNS
+                            Science</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- content -->
+<div class="container container-background">
+    <div class="page-header">
+        <h1>GeoNet WFS</h1>
+    </div>
+    <p>Advanced searches can be conducted on the GeoNet earthquake catalogue via a Web Feature Service (WFS).
+        WFS is an Open Geospatial Consortium (OGC) standard to allow web-based access to geographical data.
+    </p>
+
+    <p>We've left the WFS service fairly unrestricted and added some caching to make it perform well.
+        However, we have finite resources, so if we find it getting overloaded we may need to reduce the service.
+        Help us to keep it as open as possible by not abusing it. If you want to make a lot of requests to the WFS
+        please get
+        in touch with us first. We use GeoServer, an open source server, to provide the WFS.
+    </p>
+
+    <p>
+        Below are some sample queries for retrieving earthquake data from the WFS in CSV, JSON, GML and KML formats.
+        You can learn more about WFS features and about using a WFS with desk top GIS sytems in this OGC tutorial.
+    </p>
+
+    <p>
+        The WFS has multiple capabilities (versions). The examples below are against the 1.0.0 WFS;
+        there is also a 1.1.0 WFS.
+    </p>
+
+    <h3>Basic Queries</h3>
+
+    <h4>The Last 50 Quakes </h4>
+
+    <p>
+        The earthquake catalogue is stored so that the most recent data is returned first. You can easily retrieve the
+        last 50 quakes in the New Zealand region in a variety of formats:
+    </p>
+
+    <h5> GeoJSON </h5>
+    <a href="ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&maxFeatures=50&outputFormat=json">
+        http://wfs.geonet.org.nz/geonet/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&maxFeatures=50&outputFormat=json
+    </a>
+    <h5> CSV </h5>
+    <a href="ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&maxFeatures=50&outputFormat=csv">
+        http://wfs.geonet.org.nz/geonet/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&maxFeatures=50&outputFormat=csv
+    </a>
+    <h5> GML 2 </h5>
+    <a href="ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&maxFeatures=50&outputFormat=GML2">
+        http://wfs.geonet.org.nz/geonet/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&maxFeatures=50&outputFormat=GML2
+    </a>
+    <h5> GML 3.2 </h5>
+    <a href="ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&maxFeatures=50&outputFormat=text/xml;subtype=gml/3.2">
+        http://wfs.geonet.org.nz/geonet/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&maxFeatures=50&outputFormat=text/xml;
+        subtype=gml/3.2
+    </a>
+    <h5> KML </h5>
+    <a href="wms/kml?layers=geonet:quake_search_v1&maxFeatures=50">
+        http://wfs.geonet.org.nz/geonet/wms/kml?layers=geonet:quake_search_v1&maxFeatures=50
+    </a>
+
+    <h5> All Quakes </h5>
+
+    <p>You can retrieve all quakes in any of the above formats by dropping the maxFeatures parameter. Note: This will
+        generate a huge file. At 1 September 2012 there were over 436,000 quakes in the catalogue and this grows at
+        about 20,000 quakes per year. Consider the capabilities of your target system before grabbing all the quakes,
+        for example Google Maps has a limit of 1,000 features.
+    </p>
+    <h5>All quakes in CSV format</h5>
+
+    <p>
+        <a href="ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv">
+            http://wfs.geonet.org.nz/geonet/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv
+        </a>
+    </p>
+
+    <div class="breadcrumb">
+        <h6>Depths and magnitudes</h6>
+        <ul>
+            <li>Two earthquakes in our catalogue have an unknown depth represented by -9 km.</li>
+            <li>Many earthquakes have undetermined magnitudes represented by -9.0. This is either because:</li>
+            <li>No reliable estimate can be made from these pre-instrumental events, though they will have been felt;
+                or
+            </li>
+            <li>Insufficient stations calibrated for magnitude recorded the earthquake.</li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <h3> Complex Queries and Filtering </h3>
+
+    <p> You can make more complex queries using Contextual Query Language (CQL) to filter the results. Some examples are
+        show below. The parameters and the output format can be adjusted in the URL. Also, see the CQL specification and
+        the GeoServer CQL tutorial.
+    </p>
+
+    <p>Note: when filtering with spatial queries filter on the origin_geom point type. The longitude and latitude
+        columns are extracted from the origin_geom and provided in the output as a convenience for CSV users.
+    </p>
+
+    <p>You might find it useful to look at the XSD for the geonet:quake_search_v1 feature to see which parameters you
+        can filter on or just adjust the queries below to suit your needs.
+    </p>
+
+    <h4> CSV format </h4>
+    <h5> All Quakes After a Date </h5>
+
+    <p>
+        <a href="ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv&cql_filter=origintime>='2013-05-01'">
+            http://wfs.geonet.org.nz/geonet/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv&cql_filter=origintime>='2013-05-01'
+        </a>
+    </p>
+    <h5>All Quakes in a Date Range, Located with More than 60 Phases </h5>
+
+    <p>
+        <a href="ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv&cql_filter=origintime>='2013-06-01'+AND+origintime<'2014-01-01'+AND+usedphasecount>60">
+            http://wfs.geonet.org.nz/geonet/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv&cql_filter=origintime>='2013-06-01'+AND+origintime<'2014-01-01'+AND+usedphasecount>60
+        </a>
+    </p>
+    <h5>All Quakes Above Magnitude 6 </h5>
+
+    <p>
+        <a href="ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv&cql_filter=magnitude>6">
+            http://wfs.geonet.org.nz/geonet/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv&cql_filter=magnitude>6
+        </a>
+    </p>
+    <h5>All Quakes Above Magnitude 4 in a 1 Degree Square Box Around Wellington After a Date</h5>
+
+    <p>
+        <a href="ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv&cql_filter=BBOX(origin_geom,174,-41,175,-42)+AND+origintime>='2009-08-01'+AND+magnitude>4">
+            http://wfs.geonet.org.nz/geonet/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonet:quake_search_v1&outputFormat=csv&cql_filter=BBOX(origin_geom,174,-41,175,-42)+AND+origintime>='2009-08-01'+AND+magnitude>4
+        </a>
+    </p>
+
+    <h4> KML format </h4>
+
+    <h5>All Quakes Above Magnitude 6 </h5>
+
+    <p>
+        <a href="wms/kml?layers=geonet:quake_search_v1&cql_filter=magnitude>6">
+            http://wfs.geonet.org.nz/geonet/wms/kml?layers=geonet:quake_search_v1&cql_filter=magnitude>6
+        </a>
+    </p>
+
+    <h5>All Quakes Above Magnitude 6 and Deeper than 200 km </h5>
+
+    <p>
+        <a href="wms/kml?layers=geonet:quake_search_v1&cql_filter=magnitude>6+AND+depth>200">
+            http://wfs.geonet.org.nz/geonet/wms/kml?layers=geonet:quake_search_v1&cql_filter=magnitude>6+AND+depth>200
+        </a>
+    </p>
+
+    <h5>All Quakes Above Magnitude 3 after 1 January 2013 and Occurring Within a Polygon Around Canterbury
+        (corresponding to the Canterbury Region)</h5>
+
+    <p>NB. To search a polygon, you need to search a closed shape, i.e. the first longitude/latitude pair is repeated
+        again at the end </p>
+
+    <p>
+        <a href="wms/kml?layers=geonet:quake_search_v1&cql_filter=magnitude>3+AND+origintime>='2013-01-01'+AND+WITHIN(origin_geom,POLYGON((172.951+-41.767,+172.001+-42.832,+169.564+-44.341,+172.312+-45.412,+175.748+-42.908,+172.951+-41.767)))">
+            http://wfs.geonet.org.nz/geonet/wms/kml?layers=geonet:quake_search_v1&cql_filter=magnitude>3+AND+origintime>='2013-01-01'+AND+WITHIN(origin_geom,POLYGON((172.951+-41.767,+172.001+-42.832,+169.564+-44.341,+172.312+-45.412,+175.748+-42.908,+172.951+-41.767)))
+        </a>
+    </p>
+
+    <h5>All Quakes Shallower than 50 km and Occurring Within 50 meters of a Point (longitude 174, latitude -41)</h5>
+
+    <p>NB. Even though the search term 'feet' is used, the example search below returns degrees (0.5 degrees is between
+        43 and 55 km within the New Zealand region)
+    </p>
+
+    <p>
+        <a href="wms/kml?layers=geonet:quake_search_v1&cql_filter=depth<50+AND+DWITHIN(origin_geom,Point+(175+-41),50,meters)">
+            http://wfs.geonet.org.nz/geonet/wms/kml?layers=geonet:quake_search_v1&cql_filter=depth<50+AND+DWITHIN(origin_geom,Point+(175+-41),50,meters)
+        </a>
+    </p>
+
+    <!-- footer -->
+    <div class="footer" id="footer">
+        <div class="row">
+            <div class="span3">
+                <ul id="logo">
+                    <li id="geonet"><a shape="rect" href="http://www.geonet.org.nz" target="_blank"><span>GeoNet</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="span6"><p>GeoNet is a collaboration between the
+                <a shape="rect" href="http://www.eqc.govt.nz" target="_blank">Earthquake Commission</a> and
+                <a shape="rect" href="http://www.gns.cri.nz/" target="_blank">GNS Science</a>.</p>
+
+                <p><a shape="rect" href="http://info.geonet.org.nz/x/loYh" target="_blank">about</a> |
+                    <a shape="rect" href="http://info.geonet.org.nz/x/JYAO" target="_blank">contact</a> |
+                    <a shape="rect" href="http://info.geonet.org.nz/x/RYAo" target="_blank">privacy</a> |
+                    <a shape="rect" href="http://info.geonet.org.nz/x/EIIW" target="_blank">disclaimer</a>
+                </p>
+
+                <p>GeoNet content is copyright
+                    <a shape="rect" href="http://www.gns.cri.nz/" target="_blank">GNS Science</a> and is licensed under
+                    a
+                    <a shape="rect" href="http://creativecommons.org/licenses/by/3.0/nz/" target="_blank" rel="license">Creative
+                        Commons Attribution 3.0 New Zealand License</a>
+                </p>
+            </div>
+            <div class="span2">
+                <ul id="logo">
+                    <li id="eqc"><a shape="rect" href="http://www.eqc.govt.nz" target="_blank">
+                        <span>EQC</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="span1">
+                <ul id="logo">
+                    <li id="gns"><a shape="rect" href="http://www.gns.cri.nz" target="_blank">
+                        <span>GNS Science</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span1 offset5">
+                <ul id="logo">
+                    <li id="ccby">
+                        <a shape="rect" href="http://creativecommons.org/licenses/by/3.0/nz/">
+                            <span>CC-BY</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
